@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/work/todo-spa/app/css/style.css">
+<body>
+    <div id="app">
+        <article class="wrap">
+            <section class="todo-form">
+                <input type="text" name="todo-text" class="input-text" placeholder="Please input todo" :value="todo_text" @input="inputText"/>
+                <button class="add-button" @click="addTodo"> ADD TODO</button>
+            </section>
+
+            <section class="list-area">
+                <div class="area-incomplete">
+                    <p class="todo-title">incomplete items</p>
+                    <ul class="todo-area">
+                        <li v-for="(todo, i) in incompleteTodos"
+                        :key="i"
+                        class="list"
+                        >
+                        <span class="list-label">{{todo.todo_text}}</span>
+                        <span class="button-area">
+                            <button class="list-button button-done" @click="toggleIsDone(todo.id)">DONE</button>
+                            <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="area-completeted">
+                    <p class="todo-title">completed items</p>
+                    <ul class="todo-area">
+                        <li v-for="(todo, i) in doneTodos"
+                        :key="i"
+                        class="list"
+                        >
+                        <span class="list-label">{{todo.todo_text}}</span>
+                        <span class="button-area">
+                            <button class="list-button" @click="toggleIsDone(todo.id)">RETURN</button>
+                            <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                        </span>
+                        <span class="list-time">{{todo.ymd}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./script/script.js"></script>
+    <style></style>
+</body>

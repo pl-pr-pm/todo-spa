@@ -1,2 +1,2 @@
 # todo-spa
-Todo application based on vue
+Todo application based on vue.
